@@ -1,0 +1,58 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <script src="C:\Users\travi\source\repos\TravisTranTrinet\jquery-3.7.1.min.js"></script>
+    <title>Pokemon</title>
+</head>
+<body>
+    <header>
+        <h1>Pokéfinder</h1>
+    </header>
+    <div class="container">
+        <div id="pokemon">
+            <label for="dexorname">Name or Pokedex Entry</label>
+            <select id="dexorname">
+                <option value="select">Select</option>
+                <option value="dex">Pokedex Entry</option>
+                <option value="name">Name</option>
+            </select>
+            <p id="result"></p>
+        </div>
+        <div id="types">
+            <button id="buttons" class="active">All Types</button>
+            <button id="buttons">Bug</button>
+            <button id="buttons">Dark</button>
+            <button id="buttons">Electric</button>
+            <button id="buttons">Fairy</button>
+            <button id="buttons">Fighting</button>
+            <button id="buttons">Fire</button>
+            <button id="buttons">Flying</button>
+            <button id="buttons">Ghost</button>
+            <button id="buttons">Grass</button>
+            <button id="buttons">Ground</button>
+            <button id="buttons">Ice</button>
+            <button id="buttons">Normal</button>
+            <button id="buttons">Poison</button>
+            <button id="buttons">Psychic</button>
+            <button id="buttons">Rock</button>
+            <button id="buttons">Steel</button>
+            <button id="buttons">Water</button>
+        </div>
+        <div id="newItemButton"><button id="showForm">Add</button></div>
+        <div id="removeItem"><button href="#" id="removeItemButton">Remove</button></div>
+    </div>
+    
+    <form id="newItemForm">
+        <input type="text" id="itemDescription" placeholder="Add Pokemon"/>
+        <input type="submit" id="addButton" value="add" />
+    </form>
+    <div>
+        <ul id="pokemonList">
+        </ul>
+    </div>
+    <script src="myScripts.js"></script>
+</body>
+</html>

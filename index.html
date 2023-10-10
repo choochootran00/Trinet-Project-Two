@@ -9,50 +9,62 @@
 </head>
 <body>
     <header>
-        <h1>Pokéfinder</h1>
+        <h1>Pokémon Sort and Filter</h1>
     </header>
     <div class="container">
         <div id="pokemon">
             <label for="dexorname">Name or Pokedex Entry</label>
             <select id="dexorname">
-                <option value="select">Select</option>
-                <option value="dex">Pokedex Entry</option>
-                <option value="name">Name</option>
+                <option value="name">A-Z</option>
+                <option value="dex">0-9</option>
             </select>
             <p id="result"></p>
         </div>
         <div id="types">
-            <button id="all" class="active">All Types</button>
-            <button id="bug">Bug</button>
-            <button id="dark">Dark</button>
-            <button id="electric">Electric</button>
-            <button id="fairy">Fairy</button>
-            <button id="fighting">Fighting</button>
-            <button id="fire">Fire</button>
-            <button id="flying">Flying</button>
-            <button id="ghost">Ghost</button>
-            <button id="grass">Grass</button>
-            <button id="ground">Ground</button>
-            <button id="ice">Ice</button>
-            <button id="normal">Normal</button>
-            <button id="poison">Poison</button>
-            <button id="psychic">Psychic</button>
-            <button id="rock">Rock</button>
-            <button id="steel">Steel</button>
-            <button id="water">Water</button>
+            <button id="all" class="active mybtn">All Types</button>
+            <button class="mybtn" id="bug">Bug</button>
+            <button class="mybtn" id="dark">Dark</button>
+            <button class="mybtn" id="dragon">Dragon</button>
+            <button class="mybtn" id="electric">Electric</button>
+            <button class="mybtn" id="fairy">Fairy</button>
+            <button class="mybtn" id="fighting">Fighting</button>
+            <button class="mybtn" id="fire">Fire</button>
+            <button class="mybtn" id="flying">Flying</button>
+            <button class="mybtn" id="ghost">Ghost</button>
+            <button class="mybtn" id="grass">Grass</button>
+            <button class="mybtn" id="ground">Ground</button>
+            <button class="mybtn" id="ice">Ice</button>
+            <button class="mybtn" id="normal">Normal</button>
+            <button class="mybtn" id="poison">Poison</button>
+            <button class="mybtn" id="psychic">Psychic</button>
+            <button class="mybtn" id="rock">Rock</button>
+            <button class="mybtn" id="steel">Steel</button>
+            <button class="mybtn" id="water">Water</button>
         </div>
         <div id="newItemButton"><button id="showForm">Add</button></div>
         <div id="removeItem"><button href="#" id="removeItemButton">Remove</button></div>
     </div>
-    
+
     <form id="newItemForm">
-        <input type="text" id="itemDescription" placeholder="Add Pokemon"/>
+        <input type="text" id="itemDescription" placeholder="Add Pokemon" />
         <input type="submit" id="addButton" value="add" />
     </form>
     <div>
         <ul id="pokemonList">
         </ul>
     </div>
+
+    <table id="myTable" border="1">
+        <tr>
+            <th>Pokemon Name</th>
+            <th>Pokedex Entry</th>
+            <th>Pokemon Type</th>
+        </tr>
+        <tbody id="tableBody">
+
+        </tbody>
+
+    </table>
     <script src="myScripts.js"></script>
 </body>
 </html>

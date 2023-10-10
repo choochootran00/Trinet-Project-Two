@@ -3,7 +3,6 @@ var pokemonList = $('#pokemonList');
 var dexorname = $('#dexorname');
 var tableBody = $('#tableBody');
 
-
 function alphaSort() {
     pokemon.sort((a, b) => {
         if (a.name < b.name) return -1;
@@ -52,32 +51,31 @@ $('.mybtn').click(function () {
     $(this).addClass('active');
     var idVal = $(this).attr('id');
     /* This part is checking to see if my array of objects has a type that matches the ID of the button clicked*/
-    if (idVal !== "all") {
-        $(pokemon).each(function (i) {
-            if (pokemon[i].type === idVal) {
-                var $row = $('<tr></tr>');
-                $row.append($('<td></td>').text(pokemon[i].name));
-                $row.append($('<td></td>').text(pokemon[i].dex))
-                $row.append($('<td></td>').text(pokemon[i].type))
-                tableBody.append($row);
-            }
-            else if ($.isArray(pokemon[i].type)) {
-                var typeArray = pokemon[i].type;
-                $(typeArray).each(function (j) {
-                    if (typeArray[j] === idVal) {
-                        var $row = $('<tr></tr>');
-                        $row.append($('<td></td>').text(pokemon[i].name));
-                        $row.append($('<td></td>').text(pokemon[i].dex))
-                        $row.append($('<td></td>').text(pokemon[i].type))
-                        tableBody.append($row);
-                    }
-                })
-            }
+    $(pokemon).each(function (i) {
+        if (pokemon[i].type === idVal) {
+            var $row = $('<tr></tr>');
+            $row.append($('<td></td>').text(pokemon[i].name));
+            $row.append($('<td></td>').text(pokemon[i].dex))
+            $row.append($('<td></td>').text(pokemon[i].type))
+            tableBody.append($row);
+        }
+        else if ($.isArray(pokemon[i].type)) {
+            var typeArray = pokemon[i].type;
+            $(typeArray).each(function (j) {
+                if (typeArray[j] === idVal) {
+                    var $row = $('<tr></tr>');
+                    $row.append($('<td></td>').text(pokemon[i].name));
+                    $row.append($('<td></td>').text(pokemon[i].dex))
+                    $row.append($('<td></td>').text(pokemon[i].type))
+                    tableBody.append($row);
+                }
+            })
+        }
+        if (idVal === "all") {
+            appendList();
+            return false
+        }
         })
-    }
-    else {
-        appendList();
-    }
 });
 
 

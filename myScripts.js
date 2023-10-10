@@ -48,8 +48,8 @@ var pokemon = [
 
 
 var pokemonList = $('#pokemonList');
-var li = document.createElement("li");
-var dexorname = $('#dexorname');
+var dexorname = $('#dexorname'); 
+
 /*
 var $newItemButton = $('#newItemButton');
 var $newItemForm = $('#newItemForm');
@@ -62,11 +62,7 @@ $newItemForm.hide();
 
 
 dexorname.on('change', function () {
-    /*
-    if (pokemonList.children().length > 0) {
-        pokemonList.innerHTML = '';
-    }   */
-    pokemonList.innerHTML = '';
+    pokemonList.empty();
     const selected = $(this).val();
     if (selected === "name") {
         pokemon.sort((a, b) => {
@@ -74,9 +70,6 @@ dexorname.on('change', function () {
             if (a.name > b.name) return 1;
             return 0;
         });
-        for (var i = 0; i < pokemon.length; i++) {
-            pokemonList.append('<li>' + pokemon[i].name + '</li>');
-        }
     }
     else if (selected === "dex") {
         pokemon.sort((a, b) => {
@@ -84,10 +77,10 @@ dexorname.on('change', function () {
             if (a.dex > b.dex) return 1;
             return 0;
         });
-        for (var i = 0; i < pokemon.length; i++) {
-            pokemonList.append('<li>' + pokemon[i].name + '</li>');
-        }
     }
+    $(pokemon).each(function (i) {
+        pokemonList.append('<li>' + pokemon[i].name + '</li>');
+    });
     
 })
 
@@ -95,9 +88,16 @@ dexorname.on('change', function () {
 
 /* This Code Removes and Reapplies   the 'active' class to the button clicked*/
 $('button').click(function () {
+    pokemonList.empty();
     $('.active').removeClass('active');
     $(this).addClass('active');
+    $(pokemon)
+        .filter(function (i) {
+
+            pokemonList.append('<li>' + pokemon[i].name + '</li>');
+        })
 });
+
 
 
 /*  These lines of code is going to allow the user to add pokemon to the list

@@ -8,13 +8,9 @@
     padding-bottom: 10px;
 }
 
-header{
-    text-align: center;
-    background-color: red;
-    margin: 0 0 20px auto;
-    border: 1px solid black;
+h1{
+	text-align: center;
 }
-
 form{
     display: flex;
     justify-content: center;
@@ -39,3 +35,46 @@ ul{
 #types{
     width: 33%;
 }
+
+table{
+    margin: 50px auto 50px auto; padding: 0;
+
+    width: 50%;
+
+}
+
+/* Modal container */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+form{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+/* Modal content */
+.modal-content {
+    background-color: #fff;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 50%;
+}
+
+/* Close button */
+.close {
+    color: #aaaaaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+

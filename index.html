@@ -8,9 +8,11 @@
     <title>Pokemon</title>
 </head>
 <body>
-    <header>
-        <h1>Pokémon Sort and Filter</h1>
+    <header class="header">
+		<h1>Pokemon Sort and Filter</h1>
     </header>
+
+	<!--Flex Box Container-->
     <div class="container">
         <div id="pokemon">
             <label for="dexorname">Name or Pokedex Entry</label>
@@ -20,6 +22,9 @@
             </select>
             <p id="result"></p>
         </div>
+
+
+		<!--Buttons for all Pokemon Types Here-->
         <div id="types">
             <button id="all" class="active mybtn">All Types</button>
             <button class="mybtn" id="bug">Bug</button>
@@ -41,19 +46,31 @@
             <button class="mybtn" id="steel">Steel</button>
             <button class="mybtn" id="water">Water</button>
         </div>
+
+		<!--Buttons to Open Modal Form-->
         <div id="newItemButton"><button id="showForm">Add</button></div>
         <div id="removeItem"><button href="#" id="removeItemButton">Remove</button></div>
     </div>
+	<!--End of Flexbox container-->
 
-    <form id="newItemForm">
-        <input type="text" id="itemDescription" placeholder="Add Pokemon" />
-        <input type="submit" id="addButton" value="add" />
-    </form>
-    <div>
-        <ul id="pokemonList">
-        </ul>
+	<!--Modal Form HTML Code -->
+    <div id="myModal" class="modal">
+        <div class="modal-content">
+            <span class="close" id="closeModal">&times;</span>
+            <h2>Enter Pokemon Information!</h2>
+            <form id="myForm">
+                <label for="pokemonName">Pokemon Name</label>
+                <input type="text" id="pokemonName" placeholder="Scizor" />
+                <label for="pokemonDex">Pokedex Number</label>
+                <input type="text" id="pokemonDex" placeholder="212">
+                <label for="pokemonTypes">Pokemon Type</label>
+                <input type="text" id="pokemonTypes" placeholder="bug steel" />
+                <input type="submit" />
+            </form>
+        </div>
     </div>
 
+	<!--Table Data HTML Code-->
     <table id="myTable" border="1">
         <tr>
             <th>Pokemon Name</th>
@@ -65,6 +82,8 @@
         </tbody>
 
     </table>
+
+    <script src="pokemonObjects.js"></script>
     <script src="myScripts.js"></script>
 </body>
 </html>

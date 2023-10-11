@@ -1,9 +1,9 @@
 
-var dexorname = $('#dexorname'); // This is my Drop Down Menu Variable
-var pokemonList = $('#pokemonList'); // This is my Data Table Variable
-var tableBody = $('#tableBody'); // This is my Data Table's Body Variable
+var pokemonList = $('#pokemonList');
+var dexorname = $('#dexorname');
+var tableBody = $('#tableBody');
 
-function alphaSort() { // alphabetical Sort Function
+function alphaSort() {
     pokemon.sort((a, b) => {
         if (a.name < b.name) return -1;
         if (a.name > b.name) return 1;
@@ -16,7 +16,37 @@ function numSort() {
         return 0;
     })
 };
-function appendList(idVal) { // This is my append list code
+function appendList() {
+    $(pokemon).each(function (i) {
+        var $row = $('<tr></tr>');
+        $row.append($('<td></td>').text(pokemon[i].name));
+        $row.append($('<td></td>').text(pokemon[i].dex))
+        $row.append($('<td></td>').text(pokemon[i].type))
+        tableBody.append($row);
+    })
+
+};
+/* This sorts and displays the list of pokemon in alphabetical order*/
+alphaSort();    
+$(pokemon).each(function (i) {
+    var $row = $('<tr></tr>');
+    $row.append($('<td></td>').text(pokemon[i].name));
+    $row.append($('<td></td>').text(pokemon[i].dex))
+    $row.append($('<td></td>').text(pokemon[i].type))
+    tableBody.append($row);
+});
+/* Event listener for the alphabetical sort or numerical sort*/
+dexorname.on('change', function () {
+    $('#tableBody').empty();
+    var idVal = $('.active').attr('id');
+    const selected = $(this).val();
+    if (selected === "name") {
+        alphaSort();
+    }
+
+    else if (selected === "dex") {
+        numSort();
+    }
     $(pokemon).each(function (i) {
         if (pokemon[i].type === idVal) { // If the ID of the button clicked is a pokemons type, add it to a new row
             var $row = $('<tr></tr>');
@@ -38,39 +68,10 @@ function appendList(idVal) { // This is my append list code
             })
         }
         else if (idVal === "all") { // If the button clicked was "Show All", no need to filter, display all pokemon 
-            var $row = $('<tr></tr>');
-            $row.append($('<td></td>').text(pokemon[i].name));
-            $row.append($('<td></td>').text(pokemon[i].dex))
-            $row.append($('<td></td>').text(pokemon[i].type))
-            tableBody.append($row);
+            appendList();
+            return false // break the loop
         }
     })
-};
-
-
-/* This sorts and displays the list of pokemon in alphabetical order*/
-alphaSort();    
-$(pokemon).each(function (i) {
-    var $row = $('<tr></tr>');
-    $row.append($('<td></td>').text(pokemon[i].name));
-    $row.append($('<td></td>').text(pokemon[i].dex))
-    $row.append($('<td></td>').text(pokemon[i].type))
-    tableBody.append($row);
-});
-
-/* Event listener for the alphabetical sort or numerical sort*/
-dexorname.on('change', function () {
-    $('#tableBody').empty();
-    var idVal = $('.active').attr('id');
-    const selected = $(this).val();
-    if (selected === "name") {
-        alphaSort();
-    }
-
-    else if (selected === "dex") {
-        numSort();
-    }
-    appendList(idVal);
 });
 
 /*Button Event Listener for Pokemon Types*/
@@ -81,7 +82,31 @@ $('.mybtn').click(function () {
     var idVal = $(this).attr('id');
 
     /*Filtering the pokemon types*/
-    appendList(idVal);
+    $(pokemon).each(function (i) {
+        if (pokemon[i].type === idVal) { // If the ID of the button clicked is a pokemons type, add it to a new row
+            var $row = $('<tr></tr>'); 
+            $row.append($('<td></td>').text(pokemon[i].name));
+            $row.append($('<td></td>').text(pokemon[i].dex))
+            $row.append($('<td></td>').text(pokemon[i].type))
+            tableBody.append($row);
+        }
+        else if ($.isArray(pokemon[i].type)) { // Dual types are stored in a nested array. If the type of a pokemon is an array
+            var typeArray = pokemon[i].type;
+            $(typeArray).each(function (j) { // Loop through the nested array and check if the type is found 
+                if (typeArray[j] === idVal) {
+                    var $row = $('<tr></tr>');
+                    $row.append($('<td></td>').text(pokemon[i].name));
+                    $row.append($('<td></td>').text(pokemon[i].dex))
+                    $row.append($('<td></td>').text(pokemon[i].type))
+                    tableBody.append($row);
+                }
+            })
+        }
+        else if (idVal === "all") { // If the button clicked was "Show All", no need to filter, display all pokemon 
+            appendList();
+            return false // break the loop
+        }
+        })
 });
 
 

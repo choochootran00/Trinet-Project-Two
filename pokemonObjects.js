@@ -149,5 +149,45 @@ var pokemon = [
         name: "Aerodactyl",
         dex: 142,
         type: ["rock", "flying"]
+    },
+    {
+        name: "Haxorus",
+        dex: 612,
+        type: "dragon"
+    },
+    {
+        name: "Mew",
+        dex: 151,
+        type: "psychic"
+    },
+    {
+        name: "Espeon",
+        dex: 196,
+        type: "psychic"
+    },
+    {
+        name: "Latias",
+        dex: 381,
+        type: ["dragon", "psychic"]
+    },
+    {
+        name: "Latios",
+        dex: 380,
+        type: ["dragon", "psychic"]
+    },
+    {
+        name: "Dialga",
+        dex: 483,
+        type: ["steel","dragon"]
+    },
+    {
+        name: "Excadrill",
+        dex: 530,
+        type: ["ground", "steel"]
+    },
+    {
+        name: "Aegislash",
+        dex: 681,
+        type: ["steel", "ghost"]
     }
 ];

@@ -1,15 +1,39 @@
-﻿body{
+﻿@font-face {
+    font-family: myFont;
+    src: url(C:\Users\travi\source\repos\Trinet-Project-Two\fonts\slkscr.ttf)
+}
+
+body {
     margin: auto;
+    background-color: #F4F6F7;
+}
+button {
+    width: 75px; /* Set a fixed width for the buttons */
+    margin: 2px; /* Add some spacing between buttons */
+    border-radius: 5px;
 }
 
-.container{
+.container {
     display: flex;
-    justify-content: space-evenly;
-    padding-bottom: 10px;
+    justify-content: center;
+    padding: 30px;
+    border-radius: 5px;
 }
 
-h1{
+h1, h2{
 	text-align: center;
+}
+header {
+    display: flex;
+    justify-content: center;
+    padding-bottom: 20px;
+    background-color: #27AE60;
+    border: 1px solid #17202A;
+}
+img {
+    width: 20%;
+    height: 100px;
+
 }
 form{
     display: flex;
@@ -29,17 +53,12 @@ ul{
     margin: 0;
     padding: 0;
 }
-.active{
-    background-color: #4070f4;
-}
-#types{
-    width: 33%;
-}
 
 table{
     margin: 50px auto 50px auto; padding: 0;
     text-align: center;
-    width: 50%;
+    width: 75%;
+    border: 5px solid black;
 
 }
 
@@ -64,7 +83,7 @@ form{
 .modal-content {
     background-color: #fff;
     margin: 15% auto;
-    padding: 20px;
+    padding: 10px;
     border: 1px solid #888;
     width: 50%;
 }
@@ -78,3 +97,74 @@ form{
     cursor: pointer;
 }
 
+#removeSubmit, #mySubmit {
+    margin: auto;
+}
+
+
+/* Stylings for Type Colors! */
+#types {
+    display: flex;
+    width: 40%;
+    justify-content: center;
+    flex-wrap: wrap;
+    font-family: myFont;
+}
+#normal {
+    background-color: #A8A77A;
+}
+#bug {
+    background-color: #A6B91A;
+}
+#dark {
+    background-color: #705746;
+}
+#dragon {
+    background-color: #6F35FC;
+}
+#electric {
+    background-color: #F7D02C;
+}
+#fairy {
+    background-color: #D685AD;
+}
+#fire {
+    background-color: #EE8130;
+}
+#fighting {
+    background-color: #C22E28;
+}
+#flying {
+    background-color: #A98FF3;
+}
+#ghost {
+    background-color: #735797;
+}
+#grass {
+    background-color: #7AC74C;
+}
+#ground {
+    background-color: #E2BF65;
+}
+#ice {
+    background-color: #96D9D6;
+}
+#poison {
+    background-color: #A33EA1;
+}
+#psychic {
+    background-color: #F95587;
+}
+#rock {
+    background-color: #B6A136;
+}
+#steel {
+    background-color: #B7B7CE;
+}
+#water {
+    background-color: #6390F0;
+}
+
+.active {
+    font-weight: bold;
+}

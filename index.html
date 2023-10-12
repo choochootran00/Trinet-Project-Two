@@ -9,10 +9,10 @@
 </head>
 <body>
     <header class="header">
-		<h1>Pokemon Sort and Filter</h1>
+        <img src="C:\Users\travi\source\repos\Trinet-Project-Two\pokemonlogo.png" />
     </header>
 
-	<!--Flex Box Container-->
+    <!--Flex Box Container-->
     <div class="container">
         <div id="pokemon">
             <label for="dexorname">Name or Pokedex Entry</label>
@@ -24,7 +24,7 @@
         </div>
 
 
-		<!--Buttons for all Pokemon Types Here-->
+        <!--Buttons for all Pokemon Types Here-->
         <div id="types">
             <button id="all" class="active mybtn">All Types</button>
             <button class="mybtn" id="bug">Bug</button>
@@ -47,30 +47,48 @@
             <button class="mybtn" id="water">Water</button>
         </div>
 
-		<!--Buttons to Open Modal Form-->
+        <!--Buttons to Open Modal Form-->
         <div id="newItemButton"><button id="showForm">Add</button></div>
         <div id="removeItem"><button href="#" id="removeItemButton">Remove</button></div>
     </div>
-	<!--End of Flexbox container-->
+    <!--End of Flexbox container-->
 
-	<!--Modal Form HTML Code -->
+    <!--Modal Form HTML Code to Add Pokemon -->
     <div id="myModal" class="modal">
         <div class="modal-content">
             <span class="close" id="closeModal">&times;</span>
             <h2>Enter Pokemon Information!</h2>
             <form id="myForm">
                 <label for="pokemonName">Pokemon Name</label>
-                <input type="text" id="pokemonName" placeholder="Scizor" />
+                <input type="text" id="pokemonName" required placeholder="Scizor" />
                 <label for="pokemonDex">Pokedex Number</label>
-                <input type="text" id="pokemonDex" placeholder="212">
-                <label for="pokemonTypes">Pokemon Type</label>
-                <input type="text" id="pokemonTypes" placeholder="bug steel" />
-                <input type="submit" />
+                <input type="number" id="pokemonDex" required placeholder="212">
+                <label for="pokemonType1">Pokemon Primary Type</label>
+                <input type="text" id="pokemonType1" required placeholder="bug" />
+                <label for="pokemonType2">Pokemon Secondary Type</label>
+                <input type="text" id="pokemonType2" placeholder="optional" />
+                <br />
+                <input type="submit" id="mySubmit" />
             </form>
         </div>
     </div>
 
-	<!--Table Data HTML Code-->
+
+    <!--Modal Form to Remove Pokemon-->
+    <div id="removeModal" class="modal">
+        <div class="modal-content">
+            <span class="close" id="closeRemoveModal">&times;</span>
+            <h2>Remove Pokemon!</h2>
+            <form id="myRemoveForm">
+                <label for="pokemonToRemove">Enter the Pokemon you want to remove</label>
+                <input type="text" id="pokemonToRemove" />
+                <br />
+                <input type="submit" id="removeSubmit" />
+            </form>
+        </div>
+    </div>
+
+    <!--Table Data HTML Code-->
     <table id="myTable" border="1">
         <tr>
             <th>Pokemon Name</th>
